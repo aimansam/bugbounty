@@ -36,6 +36,7 @@ This workspace is an authorized bug bounty automation toolkit. Treat all testing
 - `scripts/recon/external-recon.sh`: optional broader passive recon with available external tools.
 - `scripts/recon/param-crawler.py`: gentle URL/query/form inventory.
 - `scripts/recon/js-endpoint-extractor.py`: JavaScript endpoint discovery.
+- `scripts/intel/cve-watch.py`: passive technology/version extraction and conservative CVE candidate mapping.
 - `scripts/testing/basic-param-test.py`: low-rate reflection checks.
 - `scripts/testing/endpoint-safety-tester.py`: conservative SQLi/command/traversal signals.
 - `scripts/burp/burp-analyze.py`: redacted Burp XML summaries.
@@ -53,6 +54,8 @@ Prioritize fast, reportable leads:
 - Traversal on download/export/file endpoints.
 - Clear backend error disclosure from search/filter parameters.
 - Password reset, invite, email change, or recovery logic flaws.
+
+Treat CVE matches as leads only. A version/CVE match is not reportable until reachable in-scope impact is manually confirmed.
 
 Usually avoid low-value leads unless there is strong impact:
 

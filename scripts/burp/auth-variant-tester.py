@@ -21,10 +21,19 @@ from xml.etree import ElementTree
 DEFAULT_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 DEFAULT_RESEARCHER = "zx10r8443"
 TARGET_PATTERNS = (
+    r"/graphql/?$",
+    r"/api/.*/graphql/?$",
+    r"/api-?\d*(?:\.\d+)?/.*/me(?:/|\?|$)",
     r"/api/v1/users/self$",
     r"/api/v1/users/profile$",
     r"/api/v1/users/find/",
     r"/api/v1/access/.+/account-status",
+    r"/api-?\d*(?:\.\d+)?/.*/notifications(?:/|\?|$)",
+    r"/api-?\d*(?:\.\d+)?/.*/settings(?:/|\?|$)",
+    r"/api-?\d*(?:\.\d+)?/.*/subscribed-courses(?:/|\?|$)",
+    r"/api-?\d*(?:\.\d+)?/shopping-carts/me(?:/|\?|$)",
+    r"/api-?\d*(?:\.\d+)?/notices/me(?:/|\?|$)",
+    r"/payment/checkout-(?:info|submit)/?$",
     r"/Pendo/GetPendoUserData$",
 )
 DROP_HEADERS = {

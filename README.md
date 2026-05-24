@@ -178,6 +178,24 @@ bash scripts/recon/external-recon.sh example-program
 
 Outputs are saved under `programs/<program-name>/recon/external-recon/`.
 
+## CVE Watch
+
+Use `scripts/intel/cve-watch.py` after passive recon, JavaScript extraction, or Burp summary generation to collect technology/version hints and map them to conservative CVE candidates.
+
+```bash
+python3 scripts/intel/cve-watch.py example-program
+```
+
+The default run is offline/cache-only and writes `programs/<program-name>/recon/cve-watch/technologies.csv`, `programs/<program-name>/recon/cve-watch/findings.json`, and `programs/<program-name>/notes/cve-watch-summary.md`.
+
+Refresh public NVD metadata when you want current CVE candidates:
+
+```bash
+python3 scripts/intel/cve-watch.py example-program --refresh-cve-cache
+```
+
+CVE Watch is passive intelligence, not vulnerability proof. Confirm the exact affected component, reachable attack surface, and bounty-relevant impact before drafting a report.
+
 ## Auth Variant Testing
 
 Use `scripts/burp/auth-variant-tester.py` to replay safe no-auth and invalid-auth variants from Burp XML exports. The script avoids printing cookies, tokens, passwords, or response bodies.

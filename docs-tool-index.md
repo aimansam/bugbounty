@@ -20,6 +20,10 @@ All scripts are for authorized bug bounty programs only. Keep each run tied to t
 - `scripts/recon/param-crawler.py` - gentle in-scope crawler for URLs, query parameters, forms, and optional reflection checks.
 - `scripts/recon/js-endpoint-extractor.py` - extracts JavaScript files and likely API endpoints from in-scope pages.
 
+## Intel
+
+- `scripts/intel/cve-watch.py` - maps local technology/version hints to conservative CVE candidates for manual validation.
+
 ## Parameter And Endpoint Checks
 
 - `scripts/testing/basic-param-test.py` - low-rate marker reflection checks for interesting query parameters.
@@ -55,6 +59,18 @@ Optional broader passive recon when allowed:
 
 ```bash
 python3 scripts/core/hunt-automate.py <program-name> --passive-plus --delay 2
+```
+
+Passive CVE intelligence from local recon artifacts:
+
+```bash
+python3 scripts/intel/cve-watch.py <program-name>
+```
+
+Refresh public NVD cache when you want current CVE metadata:
+
+```bash
+python3 scripts/intel/cve-watch.py <program-name> --refresh-cve-cache
 ```
 
 Burp processing after exporting traffic:
